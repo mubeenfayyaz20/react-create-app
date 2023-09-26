@@ -7,10 +7,10 @@ import MainContent from "./MainContent";
 const Dashboard = () => {
   return (
     <div className="mainDashboard">
-      <Header></Header>
+      <Header />
       <div className="mainLayout">
-        <Sidebar></Sidebar>
-        <MainContent></MainContent>
+        <Sidebar />
+        <MainContent />
       </div>
 
       <Footer />
