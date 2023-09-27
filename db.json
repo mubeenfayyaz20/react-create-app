@@ -1,0 +1,55 @@
+{
+  "events": [
+    {
+      "title": "dasdsa",
+      "weddingDecription": "dsdsa",
+      "startTime": "2023-09-29T14:41",
+      "endTime": "2023-09-30T14:41",
+      "id": 1,
+      "created_at": "",
+      "updated_at": ""
+    },
+    {
+      "title": "dasdsa",
+      "weddingDecription": "dsdsa",
+      "startTime": "2023-09-29T14:41",
+      "endTime": "2023-09-30T14:41",
+      "id": 2
+    },
+    {
+      "title": "dsadsa",
+      "weddingDecription": "adsdas",
+      "startTime": "2023-09-29T14:42",
+      "endTime": "2023-09-29T14:42",
+      "id": 3
+    },
+    {
+      "title": "fdsfsdafas",
+      "weddingDecription": "dfasfadsfsd",
+      "startTime": "2023-09-28T14:43",
+      "endTime": "2023-09-29T14:43",
+      "id": 4
+    },
+    {
+      "title": "dsfafds",
+      "weddingDecription": "fdsafsad",
+      "startTime": "2023-09-30T14:44",
+      "endTime": "2023-09-30T14:44",
+      "id": 5
+    },
+    {
+      "title": "Mubeen Wedding",
+      "weddingDecription": "love is a passion",
+      "startTime": "2023-09-28T15:58",
+      "endTime": "2023-09-30T15:58",
+      "id": 6
+    },
+    {
+      "title": "ahsan wedding",
+      "weddingDecription": "ffadsaf",
+      "startTime": "2023-09-28T16:03",
+      "endTime": "2023-09-30T16:03",
+      "id": 7
+    }
+  ]
+}

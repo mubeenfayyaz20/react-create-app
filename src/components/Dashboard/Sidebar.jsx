@@ -6,13 +6,14 @@ const Sidebar = () => {
     <aside className="sidebar">
       <ul className="sidebarList">
         <li className="nav-link">
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="add-new-events">Add New Events</NavLink>
         </li>
         <li className="nav-link">
-          <NavLink to="/learning-objective">Learning Objective</NavLink>
+          <NavLink to="all-events">All Events</NavLink>
         </li>
+
         <li className="nav-link">
-          <NavLink to="/question-bank">Question bank</NavLink>
+          <NavLink to="update-event">Update Event</NavLink>
         </li>
       </ul>
     </aside>

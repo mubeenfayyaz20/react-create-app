@@ -70,6 +70,7 @@ footer {
 
 .mainContent {
   padding: 20px 30px;
+  width: 100%;
 }
 .sidebarList {
   padding: 0;
@@ -88,4 +89,17 @@ footer {
   width: 100%;
   color: #fff;
   border-radius: 5px;
+}
+.addNewEventForm {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.addNewEventForm button {
+  width: 100%;
+}
+.table > thead tr th {
+  padding: 15px;
+  background-color: #2b95cf;
+  color: white;
 }
