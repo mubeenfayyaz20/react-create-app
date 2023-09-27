@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { getEventdata } from "../../api";
 const AllEvents = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    getEventdata();
-  }, []);
-
-  const getEventdata = async () => {
-    try {
-      const getData = await fetch("http://localhost:3000/events");
-      const jsonData = await getData.json();
+    const fetchData = async () => {
+      const jsonData = await getEventdata();
+      console.log("json data get", jsonData);
       setData(jsonData);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="allEvents">

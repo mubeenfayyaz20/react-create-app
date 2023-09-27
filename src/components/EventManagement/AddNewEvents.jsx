@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { eventPostData } from "../../api";
 
 const AddNewEvents = () => {
   const [title, setTitle] = useState("");
@@ -12,29 +13,23 @@ const AddNewEvents = () => {
     setStartTime(newDateTime);
     const newDateTimeEnd = new Date();
     setEndTime(newDateTimeEnd);
-    console.log(title, weddingDecription, startTime, endTime);
     try {
-      const postData = await fetch("http://localhost:3000/events", {
-        method: "POST",
-
-        headers: new Headers({ "content-type": "application/json" }),
-
-        body: JSON.stringify({
-          title: title,
-          weddingDecription: weddingDecription,
-          startTime: startTime,
-          endTime: endTime,
-        }),
+      const postData = await eventPostData({
+        title: title,
+        weddingDecription: weddingDecription,
+        startTime: startTime,
+        endTime: endTime,
       });
-      if (postData.status === 201) {
+
+      console.log(postData);
+      debugger;
+      if (postData) {
         alert("Event added successfully");
       } else {
         alert("Something went wrong");
       }
-      const data = await postData.json();
-      console.log("post data added with json format", data);
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     }
 
     setTitle("");
