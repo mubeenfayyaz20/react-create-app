@@ -21,8 +21,6 @@ const AddNewEvents = () => {
         endTime: endTime,
       });
 
-      console.log(postData);
-      debugger;
       if (postData) {
         alert("Event added successfully");
       } else {

@@ -5,12 +5,11 @@ const AllEvents = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const jsonData = await getEventdata();
-      console.log("json data get", jsonData);
-      setData(jsonData);
-    };
-    fetchData();
+    const getData = new Promise((resolve, reject) => {
+      resolve(getEventdata());
+    }).then((res) => {
+      setData(res);
+    });
   }, []);
 
   return (
