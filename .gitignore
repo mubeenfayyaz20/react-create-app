@@ -132,4 +132,4 @@ dist
 # yarn v2
 .gitignore/
 README.md/
-db.json/
+db.json
