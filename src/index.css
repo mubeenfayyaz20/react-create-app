@@ -63,7 +63,7 @@ footer {
   flex-shrink: 0;
   width: 20%;
   background: aliceblue;
-  height: calc(100vh - 132.5px);
+  height: 100vh;
   border-top: 10px solid #2b95cf;
   padding: 20px 30px;
 }
@@ -102,4 +102,9 @@ footer {
   padding: 15px;
   background-color: #2b95cf;
   color: white;
+}
+
+table th,
+td {
+  vertical-align: middle;
 }

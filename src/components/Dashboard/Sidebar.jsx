@@ -11,10 +11,6 @@ const Sidebar = () => {
         <li className="nav-link">
           <NavLink to="all-events">All Events</NavLink>
         </li>
-
-        <li className="nav-link">
-          <NavLink to="update-event">Update Event</NavLink>
-        </li>
       </ul>
     </aside>
   );
