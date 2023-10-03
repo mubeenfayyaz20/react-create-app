@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { getEventdata, eventDelete } from "../../api";
+import _ from "lodash";
+
 const AllEvents = () => {
   const [data, setData] = useState([]);
 
@@ -11,9 +13,7 @@ const AllEvents = () => {
   }, []);
 
   const getData = () => {
-    new Promise((resolve, reject) => {
-      resolve(getEventdata());
-    }).then((res) => {
+    getEventdata().then((res) => {
       setData(res);
     });
   };
@@ -22,8 +22,8 @@ const AllEvents = () => {
     navigate("/update-event/" + id);
   };
 
-  const deleteEvent = async (id) => {
-    const deleteData = await eventDelete(id);
+  const deleteEvent = (id) => {
+    const deleteData = eventDelete(id);
     getData();
 
     if (deleteData) {
@@ -32,7 +32,6 @@ const AllEvents = () => {
       alert("Something went wrong");
     }
   };
-
   return (
     <div className="allEvents">
       <div className="d-flex justify-content-between mb-3 align-items-center">
@@ -54,18 +53,18 @@ const AllEvents = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((item, index) => {
+            {_.map(data, (value, key) => {
               return (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{item.title}</td>
-                  <td>{item.weddingDecription}</td>
-                  <td>{item.startTime}</td>
-                  <td>{item.endTime}</td>
+                <tr key={key}>
+                  <td>{key + 1}</td>
+                  <td>{value.title}</td>
+                  <td>{value.weddingDecription}</td>
+                  <td>{value.startTime}</td>
+                  <td>{value.endTime}</td>
                   <td>
                     <span>
                       <button
-                        onClick={() => update(item.id)}
+                        onClick={() => update(value.id)}
                         className="btn btn-primary m-1 "
                       >
                         Update
@@ -74,7 +73,7 @@ const AllEvents = () => {
                       <button
                         className="btn btn-danger m-1 "
                         onClick={() => {
-                          deleteEvent(item.id);
+                          deleteEvent(value.id);
                         }}
                       >
                         Delete

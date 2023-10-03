@@ -10,16 +10,17 @@ const AddNewEvents = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchSingalData = async () => {
+    const fetchSingalData = () => {
       try {
-        const response = await getEventDataID(id);
-        setEventData(response);
+        getEventDataID(id).then((res) => {
+          setEventData(res);
+        });
       } catch (err) {
         console.log(err);
       }
     };
     fetchSingalData();
-  }, []);
+  }, [id]);
 
   const handleInputChange = (e) => {
     setEventData({ ...eventData, [e.target.name]: e.target.value });
@@ -29,7 +30,7 @@ const AddNewEvents = () => {
     e.preventDefault();
 
     try {
-      const updateDataResponse = await eventUpdateData(id, {
+      await eventUpdateData(id, {
         title: eventData.title,
         weddingDecription: eventData.weddingDecription,
         startTime: eventData.startTime,

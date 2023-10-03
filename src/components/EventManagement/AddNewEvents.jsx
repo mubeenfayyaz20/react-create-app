@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { eventPostData } from "../../api";
+import format from "date-fns/format";
 
 const AddNewEvents = () => {
   const [title, setTitle] = useState("");
   const [weddingDecription, setWeddingDecription] = useState("");
-  const [startTime, setStartTime] = useState(new Date());
-  const [endTime, setEndTime] = useState(new Date());
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newDateTime = new Date();
-    setStartTime(newDateTime);
-    const newDateTimeEnd = new Date();
-    setEndTime(newDateTimeEnd);
+    const formattedDate = format(new Date(startTime), "MM/dd/yyyy");
+    const formattedDateEnd = format(new Date(endTime), "MM/dd/yyyy");
+
     try {
       const postData = await eventPostData({
         title: title,
         weddingDecription: weddingDecription,
-        startTime: startTime,
-        endTime: endTime,
+        startTime: formattedDate,
+        endTime: formattedDateEnd,
       });
 
       if (postData) {
@@ -69,7 +69,7 @@ const AddNewEvents = () => {
         <div className="form-group  mb-3">
           <label htmlFor="start-time">Start Time</label>
           <input
-            type="datetime-local"
+            type="date"
             className="form-control"
             id="start-time"
             value={startTime}
@@ -82,7 +82,7 @@ const AddNewEvents = () => {
         <div className="form-group  mb-3">
           <label htmlFor="end-time">End Time</label>
           <input
-            type="datetime-local"
+            type="date"
             className="form-control"
             value={endTime}
             id="end-time"
