@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { getEventdata, eventDelete } from "../../api";
-import _ from "lodash";
+import map from "lodash/map";
+import format from "date-fns/format";
 
 const AllEvents = () => {
   const [data, setData] = useState([]);
@@ -53,14 +54,22 @@ const AllEvents = () => {
             </tr>
           </thead>
           <tbody>
-            {_.map(data, (value, key) => {
+            {map(data, (value, key) => {
+              const formattedDate = format(
+                new Date(value.startTime),
+                "MM/dd/yyyy"
+              );
+              const formattedDateEnd = format(
+                new Date(value.endTime),
+                "MM/dd/yyyy"
+              );
               return (
                 <tr key={key}>
                   <td>{key + 1}</td>
                   <td>{value.title}</td>
                   <td>{value.weddingDecription}</td>
-                  <td>{value.startTime}</td>
-                  <td>{value.endTime}</td>
+                  <td>{formattedDate}</td>
+                  <td>{formattedDateEnd}</td>
                   <td>
                     <span>
                       <button

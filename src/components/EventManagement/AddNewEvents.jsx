@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { eventPostData } from "../../api";
-import format from "date-fns/format";
+import Textfield from "../../elements/Form/Textfield";
 
 const AddNewEvents = () => {
   const [title, setTitle] = useState("");
@@ -10,15 +10,13 @@ const AddNewEvents = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formattedDate = format(new Date(startTime), "MM/dd/yyyy");
-    const formattedDateEnd = format(new Date(endTime), "MM/dd/yyyy");
 
     try {
       const postData = await eventPostData({
         title: title,
         weddingDecription: weddingDecription,
-        startTime: formattedDate,
-        endTime: formattedDateEnd,
+        startTime: startTime,
+        endTime: endTime,
       });
 
       if (postData) {
@@ -41,11 +39,10 @@ const AddNewEvents = () => {
       <h3 className="mb-3">Add Event</h3>
       <form>
         <div className="form-group mb-3">
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            className="form-control"
+          <Textfield
+            label="Title"
             id="title"
+            name="title"
             value={title}
             placeholder="Enter title"
             onChange={(e) => {
@@ -54,24 +51,23 @@ const AddNewEvents = () => {
           />
         </div>
         <div className="form-group  mb-3">
-          <label htmlFor="Description">Description</label>
-          <input
-            type="text"
-            className="form-control"
+          <Textfield
+            label="Description"
             id="Description"
+            name="Description"
             value={weddingDecription}
+            placeholder="Enter Description"
             onChange={(e) => {
               setWeddingDecription(e.target.value);
             }}
-            placeholder="Description"
           />
         </div>
         <div className="form-group  mb-3">
-          <label htmlFor="start-time">Start Time</label>
-          <input
+          <Textfield
             type="date"
-            className="form-control"
+            label="Start Time"
             id="start-time"
+            name="start-time"
             value={startTime}
             placeholder="Start time"
             onChange={(e) => {
@@ -80,13 +76,13 @@ const AddNewEvents = () => {
           />
         </div>
         <div className="form-group  mb-3">
-          <label htmlFor="end-time">End Time</label>
-          <input
+          <Textfield
             type="date"
-            className="form-control"
-            value={endTime}
+            label="End Time"
             id="end-time"
-            placeholder="End Time"
+            name="end-time"
+            value={endTime}
+            placeholder="End time"
             onChange={(e) => {
               setEndTime(e.target.value);
             }}

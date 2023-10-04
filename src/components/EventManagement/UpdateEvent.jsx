@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getEventDataID, eventUpdateData, getEventdata } from "../../api";
 import { useParams, useNavigate } from "react-router-dom";
+import Textfield from "../../elements/Form/Textfield";
 
 const AddNewEvents = () => {
   const [eventData, setEventData] = useState({});
@@ -10,16 +11,13 @@ const AddNewEvents = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchSingalData = () => {
-      try {
-        getEventDataID(id).then((res) => {
-          setEventData(res);
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchSingalData();
+    try {
+      getEventDataID(id).then((res) => {
+        setEventData(res);
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }, [id]);
 
   const handleInputChange = (e) => {
@@ -43,15 +41,16 @@ const AddNewEvents = () => {
       console.log(err);
     }
   };
+  // const formattedDate = format(new Date(eventData.startTime), "MM-dd-yyyy");
+
+  // console.log(formattedDate);
   return (
     <div className="addNewEventForm">
       <h3 className="mb-3">Update Event</h3>
       <form>
         <div className="form-group mb-3">
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            className="form-control"
+          <Textfield
+            label="Title"
             id="title"
             name="title"
             value={eventData.title}
@@ -60,37 +59,33 @@ const AddNewEvents = () => {
           />
         </div>
         <div className="form-group  mb-3">
-          <label htmlFor="Description">Description</label>
-          <input
-            type="text"
-            className="form-control"
+          <Textfield
+            label="Description"
             id="Description"
             name="weddingDecription"
             value={eventData.weddingDecription}
+            placeholder="Enter Decription"
             onChange={handleInputChange}
-            placeholder="Description"
           />
         </div>
         <div className="form-group  mb-3">
-          <label htmlFor="start-time">Start Time</label>
-          <input
-            type="datetime-local"
-            className="form-control"
+          <Textfield
+            type="date"
+            label="Start Time"
             id="start-time"
             name="startTime"
             value={eventData.startTime}
-            placeholder="Start time"
+            placeholder="Start Time"
             onChange={handleInputChange}
           />
         </div>
         <div className="form-group  mb-3">
-          <label htmlFor="end-time">End Time</label>
-          <input
-            type="datetime-local"
-            className="form-control"
-            value={eventData.endTime}
+          <Textfield
+            type="date"
+            label="End Time"
             id="end-time"
             name="endTime"
+            value={eventData.endTime}
             placeholder="End Time"
             onChange={handleInputChange}
           />

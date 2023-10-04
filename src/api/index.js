@@ -59,7 +59,6 @@ export const eventUpdateData = async (eventId, updatedData) => {
 
 export const eventDelete = async (eventId) => {
   try {
-    debugger;
     const deleteData = await fetch(`${apiURL}events/${eventId}`, {
       method: "DELETE",
     });
