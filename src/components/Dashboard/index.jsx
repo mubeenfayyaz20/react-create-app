@@ -3,6 +3,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import Sidebar from "./Sidebar";
 import MainContent from "./MainContent";
+import {} from "react-router-dom";
 
 const Dashboard = () => {
   return (
