@@ -63,13 +63,14 @@ footer {
   flex-shrink: 0;
   width: 20%;
   background: aliceblue;
-  height: calc(100vh - 132.5px);
+  height: 100vh;
   border-top: 10px solid #2b95cf;
   padding: 20px 30px;
 }
 
 .mainContent {
   padding: 20px 30px;
+  width: 100%;
 }
 .sidebarList {
   padding: 0;
@@ -88,4 +89,22 @@ footer {
   width: 100%;
   color: #fff;
   border-radius: 5px;
+}
+.addNewEventForm {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.addNewEventForm button {
+  width: 100%;
+}
+.table > thead tr th {
+  padding: 15px;
+  background-color: #2b95cf;
+  color: white;
+}
+
+table th,
+td {
+  vertical-align: middle;
 }
