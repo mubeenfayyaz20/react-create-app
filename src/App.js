@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./App.css";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./pages/Dashboard";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {

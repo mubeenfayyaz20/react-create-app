@@ -108,3 +108,10 @@ table th,
 td {
   vertical-align: middle;
 }
+
+.parentComponent {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
