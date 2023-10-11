@@ -109,9 +109,15 @@ td {
   vertical-align: middle;
 }
 
-.parentComponent {
+.cardEvents {
   display: flex;
   align-items: center;
   gap: 20px;
   justify-content: center;
+}
+
+.dashboardCard {
+  padding: 20px;
+  border: 1px solid red;
+  border-radius: 10px;
 }

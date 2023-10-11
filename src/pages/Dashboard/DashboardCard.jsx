@@ -1,11 +1,8 @@
 import React from "react";
 
-const ChildComponent = ({ heading, button, onMouseHover }) => {
+const DashboardCard = ({ heading, button, onMouseHover }) => {
   return (
-    <div
-      className="childComponent"
-      style={{ border: "1px solid red", padding: "10px", borderRadius: "10px" }}
-    >
+    <div className="dashboardCard">
       <h2>{heading}</h2>
       <button
         onClick={() => button(heading)}
@@ -17,4 +14,4 @@ const ChildComponent = ({ heading, button, onMouseHover }) => {
   );
 };
 
-export default ChildComponent;
+export default DashboardCard;

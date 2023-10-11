@@ -1,7 +1,7 @@
 import React from "react";
-import ChildComponent from "./ChildComponent";
+import DashboardCard from "./DashboardCard";
 
-const ParentComponent = () => {
+const CardEvents = () => {
   const pageOnLoad = () => {
     return {
       sectionA: "Section A",
@@ -27,16 +27,16 @@ const ParentComponent = () => {
   };
 
   return (
-    <div className="parentComponent">
+    <div className="cardEvents">
       <div>
-        <ChildComponent
+        <DashboardCard
           heading={sectionA}
           button={onbuttonClick}
           onMouseHover={mouseHover}
         />
       </div>
       <div>
-        <ChildComponent
+        <DashboardCard
           heading={sectionB}
           button={onbuttonClick}
           onMouseHover={mouseHover}
@@ -46,4 +46,4 @@ const ParentComponent = () => {
   );
 };
 
-export default ParentComponent;
+export default CardEvents;
