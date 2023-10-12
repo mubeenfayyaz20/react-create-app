@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { eventPostData } from "../../api";
-import Textfield from "../../elements/Form/Textfield";
-
-const AddNewEvents = () => {
+import Textfield from "../elements/Form/Textfield";
+const EventForm = ({ apiCall, ...reset }) => {
   const [title, setTitle] = useState("");
   const [weddingDecription, setWeddingDecription] = useState("");
   const [startTime, setStartTime] = useState("");
@@ -12,7 +10,7 @@ const AddNewEvents = () => {
     e.preventDefault();
 
     try {
-      const postData = await eventPostData({
+      const postData = await apiCall({
         title: title,
         weddingDecription: weddingDecription,
         startTime: startTime,
@@ -35,8 +33,7 @@ const AddNewEvents = () => {
   };
 
   return (
-    <div className="addNewEventForm">
-      <h3 className="mb-3">Add Event</h3>
+    <div className="genericForm">
       <form>
         <div className="form-group mb-3">
           <Textfield
@@ -102,4 +99,4 @@ const AddNewEvents = () => {
   );
 };
 
-export default AddNewEvents;
+export default EventForm;
