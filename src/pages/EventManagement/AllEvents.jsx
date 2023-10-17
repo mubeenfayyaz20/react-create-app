@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { getEventdata, eventDelete } from "../../api";
 import map from "lodash/map";
-import format from "date-fns/format";
+import { format } from "date-fns";
 
 const AllEvents = () => {
   const [data, setData] = useState([]);
@@ -24,9 +24,11 @@ const AllEvents = () => {
   };
 
   const deleteEvent = (id) => {
-    const deleteData = eventDelete(id);
+    debugger;
+    const deleteData = eventDelete(id).then(() => {
+      getData();
+    });
     getData();
-
     if (deleteData) {
       alert("Event deleted successfully");
     } else {
@@ -86,6 +88,9 @@ const AllEvents = () => {
                         }}
                       >
                         Delete
+                      </button>
+                      <button className="btn btn-success m-1 ">
+                        Event Atend
                       </button>
                     </span>
                   </td>

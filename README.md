@@ -77,3 +77,12 @@ npm install -g json-server
 
 ### json watch
 json-server --watch db.json
+
+
+### Formik
+ npm install formik --save
+
+
+### install yup
+
+npm i yup
