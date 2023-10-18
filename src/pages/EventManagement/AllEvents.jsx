@@ -24,7 +24,6 @@ const AllEvents = () => {
   };
 
   const deleteEvent = (id) => {
-    debugger;
     const deleteData = eventDelete(id).then(() => {
       getData();
     });

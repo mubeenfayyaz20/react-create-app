@@ -4,7 +4,6 @@ import EventForm from "../../components/EventForm";
 
 const AddNewEvents = () => {
   const apiCall = async (data) => {
-    debugger;
     try {
       const postData = await eventPostData(data);
       return postData;
