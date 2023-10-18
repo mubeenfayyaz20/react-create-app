@@ -6,6 +6,8 @@ const Textfield = ({ label, ...rest }) => {
       <label>{label}</label>
       <input
         type={rest.type || "text"}
+        name={rest.name || label}
+        id={rest.id || label}
         placeholder={rest.placeholder || label}
         className={rest.className || "form-control"}
         {...rest}

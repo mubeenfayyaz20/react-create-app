@@ -3,7 +3,7 @@ import AddNewEvents from "../EventManagement/AddNewEvents";
 import AllEvents from "../EventManagement/AllEvents";
 import UpdateEvent from "../EventManagement/UpdateEvent";
 import { Routes, Route } from "react-router-dom";
-import ParentComponent from "./ParentComponent";
+import CardEvents from "./CardEvents";
 
 const MainContent = () => {
   return (
@@ -12,7 +12,7 @@ const MainContent = () => {
         <Route path="/add-new-events" element={<AddNewEvents />} />
         <Route path="/all-events" element={<AllEvents />} />
         <Route path="/update-event/:id" element={<UpdateEvent />} />
-        <Route path="/test" element={<ParentComponent />} />
+        <Route path="/test" element={<CardEvents />} />
       </Routes>
     </main>
   );
