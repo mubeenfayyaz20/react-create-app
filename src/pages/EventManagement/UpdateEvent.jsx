@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getEventDataID, eventUpdateData, getEventdata } from "../../api";
-import { useParams, useNavigate } from "react-router-dom";
-import Textfield from "../../elements/Form/Textfield";
+import { getEventDataID, eventUpdateData } from "../../api";
 import EventForm from "../../components/EventForm";
+import { useParams } from "react-router-dom";
 
 const AddNewEvents = () => {
-  const [eventData, setEventData] = useState({});
-
+  const [eventData, setEventData] = useState(null);
   const params = useParams();
   const { id } = params;
-  const navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -21,14 +18,12 @@ const AddNewEvents = () => {
     }
   }, [id]);
 
-  const handleInputChange = (e) => {
-    setEventData({ ...eventData, [e.target.name]: e.target.value });
-  };
-
-  const apiCall = async (data) => {
+  const apiCall = async (data, { resetForm }) => {
     try {
-      const postData = await eventUpdateData(id, data);
-      return postData;
+      debugger;
+      const updateData = await eventUpdateData(id, data);
+      resetForm();
+      return updateData;
     } catch (err) {
       console.log(err);
     }
@@ -37,7 +32,7 @@ const AddNewEvents = () => {
   return (
     <div className="addNewEventForm">
       <h3 className="mb-3">Update Event</h3>
-      <EventForm apiCall={apiCall} />
+      {eventData && <EventForm apiCall={apiCall} eventData={eventData} />}
     </div>
   );
 };
