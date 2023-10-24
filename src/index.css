@@ -149,3 +149,11 @@ table.floatThead-table {
   font-weight: normal;
   font-size: 10px;
 }
+
+.eventShowStyle {
+  background-color: antiquewhite !important;
+}
+
+.eventCreated {
+  background-color: aqua !important;
+}

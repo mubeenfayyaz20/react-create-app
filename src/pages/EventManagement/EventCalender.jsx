@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import map from "lodash/map";
 import { getEventdata } from "../../api";
-import { format } from "date-fns";
-import moment from "moment";
+import format from "date-fns/format";
 
 const EventCalender = () => {
   const [data, setData] = useState([]);
-  const [currentDate, setCurrentDate] = useState(moment());
 
   useEffect(() => {
     getData();
@@ -18,84 +16,110 @@ const EventCalender = () => {
     });
   };
 
-  const tableHeader = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  // const tableHeader = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  const timeslots = [
-    { id: 0, lable: "12 am" },
-    { id: 1, lable: "1 am" },
-    { id: 2, lable: "2 am" },
+  const timeSlots = [
+    "01am",
+    "02am",
+    "03am",
+    "04am",
+    "05am",
+    "06am",
+    "07am",
+    "08am",
+    "09am",
+    "10am",
+    "11am",
+    "12am",
+    "01pm",
+    "02pm",
+    "03pm",
+    "04pm",
+    "05pm",
+    "06pm",
+    "07pm",
+    "08pm",
+    "09pm",
+    "10pm",
+    "11pm",
+    "12pm",
   ];
 
-  const getNextDate = () => {
-    const nextDate = moment(currentDate).add(1, "day");
-    setCurrentDate(nextDate);
-  };
-
-  const dateEqual = (date1, date2) => {
-    return (
-      date1.getFullYear() === date2.getFullYear() &&
-      date1.getMonth() === date2.getMonth() &&
-      date1.getDate() === date2.getDate()
-    );
-  };
-
   return (
+    // <>
+
+    // </>
     <div className="eventCalender">
       <table className="table table-bordered sticky-header">
         <thead className="text-left">
-          <tr>
-            <th>Days</th>
+          {/* <tr>
+            <th>Day</th>
             {map(tableHeader, (value, key) => {
-              return <th key={key}>{value}</th>;
+              return (
+                <th key={key} style={{ textAlign: "center" }}>
+                  {value}
+                </th>
+              );
             })}
-          </tr>
+          </tr> */}
           <tr>
             <th>Date</th>
-            {map(data, (value, key) => {
-              const formattedDate = format(new Date(value.startTime), "dd'");
 
-              return <th key={key}>{formattedDate}</th>;
+            {map(data, (value, key) => {
+              const formattedDate = format(
+                new Date(value.startTime),
+                "MM-dd-yyyy'"
+              );
+
+              return (
+                <th key={key} style={{ textAlign: "center" }}>
+                  {formattedDate}
+                </th>
+              );
             })}
           </tr>
         </thead>
 
         <tbody>
-          {/* Map over the time slots */}
-          {map(timeslots, (timeSlot, timeIndex) => (
-            <tr key={timeIndex}>
-              <th>{timeSlot.lable}</th>
-              {/* Map over the days */}
-              {map(tableHeader.slice(1), (day, dayIndex) => {
-                // Find the event for the current day and time slot
-                // debugger;
-                console.log(data);
-                // debugger;
-                const event =
-                  data && data.length > 0
-                    ? data.find(
-                        (event) =>
-                          dateEqual(
-                            moment(event.startTime).toDate(),
-                            currentDate.toDate()
-                          )
-                        // moment(event.startTime).hour() === timeSlot.id &&
-                        // moment(event.startTime).format("ddd") === day
-                      )
-                    : null;
+          {map(timeSlots, (timeSlotvalue, timeSlotkey) => {
+            return (
+              <tr key={timeSlotkey}>
+                <th> {timeSlotvalue}</th>
+                {map(data, (eventValue, eventValuekey) => {
+                  // Filter events based on the current time slot
+                  const eventTime = format(
+                    new Date(eventValue.startTime),
+                    "hha"
+                  );
+                  const isValid =
+                    eventTime.toLowerCase() === timeSlotvalue.toLowerCase();
 
-                console.log(event);
+                  const { startTime, title } = eventValue || {};
 
-                return (
-                  <td key={dayIndex}>
-                    {event ? <div>{event.title}</div> : null}
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
+                  const startTimeFormat = format(
+                    new Date(startTime),
+                    "MM-dd-yyyy' 'hh:mmaaaaa'm'"
+                  );
+                  return (
+                    <td
+                      key={eventValuekey}
+                      className="text-center eventShowStyle"
+                    >
+                      {isValid ? (
+                        <div className="eventCreated">
+                          {title} <br /> {startTimeFormat}
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
-      <button onClick={getNextDate}>Next Day</button>
     </div>
   );
 };
