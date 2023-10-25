@@ -20,7 +20,6 @@ const AddNewEvents = () => {
 
   const apiCall = async (data, { resetForm }) => {
     try {
-      debugger;
       const updateData = await eventUpdateData(id, data);
       resetForm();
       return updateData;
