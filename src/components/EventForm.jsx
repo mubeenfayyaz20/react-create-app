@@ -16,7 +16,6 @@ const EventForm = ({ apiCall, eventData }) => {
     } catch (err) {
       console.log(err);
     }
-    debugger;
     actions.resetForm();
   };
 
