@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import map from "lodash/map";
 import { getEventdata } from "../../api";
 import format from "date-fns/format";
+import Modal from "../../components/Modal";
 
 const EventCalender = () => {
   const [data, setData] = useState([]);
+  const [isOpenModal, setOpenModal] = useState(false);
+  const [isModalTitle, setModalTitle] = useState("");
+  const [isModalDescription, setModalDescription] = useState("");
 
   useEffect(() => {
     getData();
@@ -15,8 +19,6 @@ const EventCalender = () => {
       setData(res);
     });
   };
-
-  // const tableHeader = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   const timeSlots = [
     "01am",
@@ -45,82 +47,89 @@ const EventCalender = () => {
     "12pm",
   ];
 
+  const modalOpen = (data) => {
+    setOpenModal(!isOpenModal);
+    setModalTitle(data.title);
+    setModalDescription(data.weddingDecription);
+  };
+  const closeModal = () => {
+    setOpenModal(!isOpenModal);
+  };
   return (
-    // <>
+    <>
+      <div className="eventCalender">
+        <table className="table table-bordered sticky-header">
+          <thead className="text-left">
+            <tr>
+              <th>Date</th>
 
-    // </>
-    <div className="eventCalender">
-      <table className="table table-bordered sticky-header">
-        <thead className="text-left">
-          {/* <tr>
-            <th>Day</th>
-            {map(tableHeader, (value, key) => {
+              {map(data, (value, key) => {
+                const formattedDate = format(
+                  new Date(value.startTime),
+                  "MM-dd-yyyy'"
+                );
+
+                return (
+                  <th key={key} style={{ textAlign: "center" }}>
+                    {formattedDate}
+                  </th>
+                );
+              })}
+            </tr>
+          </thead>
+
+          <tbody>
+            {map(timeSlots, (timeSlotvalue, timeSlotkey) => {
               return (
-                <th key={key} style={{ textAlign: "center" }}>
-                  {value}
-                </th>
+                <tr key={timeSlotkey}>
+                  <th> {timeSlotvalue}</th>
+                  {map(data, (eventValue, eventValuekey) => {
+                    // Filter events based on the current time slot
+                    const eventTime = format(
+                      new Date(eventValue.startTime),
+                      "hha"
+                    );
+                    const isValid =
+                      eventTime.toLowerCase() === timeSlotvalue.toLowerCase();
+
+                    const { startTime, title } = eventValue || {};
+
+                    const startTimeFormat = format(
+                      new Date(startTime),
+                      "MM-dd-yyyy' 'hh:mmaaaaa'm'"
+                    );
+                    return (
+                      <td
+                        key={eventValuekey}
+                        className="text-center eventShowStyle"
+                      >
+                        {isValid ? (
+                          <div
+                            onClick={() => modalOpen(eventValue)}
+                            className="eventCreated"
+                          >
+                            {title} <br /> {startTimeFormat}
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </td>
+                    );
+                  })}
+                </tr>
               );
             })}
-          </tr> */}
-          <tr>
-            <th>Date</th>
+          </tbody>
+        </table>
 
-            {map(data, (value, key) => {
-              const formattedDate = format(
-                new Date(value.startTime),
-                "MM-dd-yyyy'"
-              );
-
-              return (
-                <th key={key} style={{ textAlign: "center" }}>
-                  {formattedDate}
-                </th>
-              );
-            })}
-          </tr>
-        </thead>
-
-        <tbody>
-          {map(timeSlots, (timeSlotvalue, timeSlotkey) => {
-            return (
-              <tr key={timeSlotkey}>
-                <th> {timeSlotvalue}</th>
-                {map(data, (eventValue, eventValuekey) => {
-                  // Filter events based on the current time slot
-                  const eventTime = format(
-                    new Date(eventValue.startTime),
-                    "hha"
-                  );
-                  const isValid =
-                    eventTime.toLowerCase() === timeSlotvalue.toLowerCase();
-
-                  const { startTime, title } = eventValue || {};
-
-                  const startTimeFormat = format(
-                    new Date(startTime),
-                    "MM-dd-yyyy' 'hh:mmaaaaa'm'"
-                  );
-                  return (
-                    <td
-                      key={eventValuekey}
-                      className="text-center eventShowStyle"
-                    >
-                      {isValid ? (
-                        <div className="eventCreated">
-                          {title} <br /> {startTimeFormat}
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+        <Modal
+          show={isOpenModal}
+          modalTitle={isModalTitle}
+          description={isModalDescription}
+          close={closeModal}
+        />
+      </div>
+    </>
   );
 };
 
