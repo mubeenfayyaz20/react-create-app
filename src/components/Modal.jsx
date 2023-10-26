@@ -4,7 +4,7 @@ const Modal = ({ show, modalTitle, description, close }) => {
   return (
     <>
       {show ? (
-        <div className="modalContainer" onClick={() => close()}>
+        <div className="modalContainer" onClick={close}>
           <div className="calanderModal" onClick={(e) => e.stopPropagation()}>
             <div className="calanderModal-dialog" role="document">
               <div className="calanderModal-content">
@@ -15,7 +15,7 @@ const Modal = ({ show, modalTitle, description, close }) => {
                     className="close"
                     data-dismiss="calanderModal"
                     aria-label="Close"
-                    onClick={() => close()}
+                    onClick={close}
                   >
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -24,9 +24,6 @@ const Modal = ({ show, modalTitle, description, close }) => {
                   <p>{description}</p>
                 </div>
                 <div className="calanderModal-footer">
-                  {/* <button type="button" className="btn btn-primary">
-                    Save changes
-                  </button> */}
                   <button
                     type="button"
                     className="btn btn-secondary"

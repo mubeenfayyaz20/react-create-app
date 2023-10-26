@@ -86,14 +86,3 @@ json-server --watch db.json
 ### install yup
 
 npm i yup
-
-
-
-### google calender
-
-npm i react-big-calendar
-
-
-### date picker
-
-npm i react-datepicker

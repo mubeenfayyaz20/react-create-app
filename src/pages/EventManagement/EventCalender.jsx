@@ -7,8 +7,7 @@ import Modal from "../../components/Modal";
 const EventCalender = () => {
   const [data, setData] = useState([]);
   const [isOpenModal, setOpenModal] = useState(false);
-  const [isModalTitle, setModalTitle] = useState("");
-  const [isModalDescription, setModalDescription] = useState("");
+  const [isModalValue, setModalValue] = useState({});
 
   useEffect(() => {
     getData();
@@ -49,12 +48,13 @@ const EventCalender = () => {
 
   const modalOpen = (data) => {
     setOpenModal(!isOpenModal);
-    setModalTitle(data.title);
-    setModalDescription(data.weddingDecription);
+    setModalValue(data);
   };
+
   const closeModal = () => {
     setOpenModal(!isOpenModal);
   };
+
   return (
     <>
       <div className="eventCalender">
@@ -103,15 +103,13 @@ const EventCalender = () => {
                         key={eventValuekey}
                         className="text-center eventShowStyle"
                       >
-                        {isValid ? (
+                        {isValid && (
                           <div
                             onClick={() => modalOpen(eventValue)}
                             className="eventCreated"
                           >
                             {title} <br /> {startTimeFormat}
                           </div>
-                        ) : (
-                          ""
                         )}
                       </td>
                     );
@@ -124,8 +122,8 @@ const EventCalender = () => {
 
         <Modal
           show={isOpenModal}
-          modalTitle={isModalTitle}
-          description={isModalDescription}
+          modalTitle={isModalValue.title}
+          description={isModalValue.weddingDecription}
           close={closeModal}
         />
       </div>

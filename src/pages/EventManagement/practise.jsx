@@ -6,10 +6,14 @@ const practise = () => {
   const addCounter = (e) => {
     e.preventDefault;
     setCounter(isCounter + 1);
+    setCounter(isCounter + 1);
+    setCounter(isCounter + 1);
   };
 
   return (
     <div>
+      {isCounter}
+
       <button onClick={addCounter}>Add</button>
     </div>
   );

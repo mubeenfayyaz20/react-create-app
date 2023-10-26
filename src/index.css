@@ -156,6 +156,7 @@ table.floatThead-table {
 
 .eventCreated {
   background-color: aqua !important;
+  cursor: pointer;
 }
 
 .modalContainer {
