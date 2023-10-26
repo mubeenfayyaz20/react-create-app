@@ -34,6 +34,7 @@ const EventForm = ({ apiCall, eventData }) => {
       startTime: eventData?.startTime || "",
       endTime: eventData?.endTime || "",
     },
+    enableReinitialize: true,
     validationSchema: basicSchema,
     onSubmit,
   });
