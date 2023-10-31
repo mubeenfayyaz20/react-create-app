@@ -58,11 +58,11 @@ const AllEvents = () => {
             {map(data, (value, key) => {
               const formattedDate = format(
                 new Date(value.startTime),
-                "MM/dd/yyyy"
+                "MM-dd-yyyy' 'hh:mmaaaaa'm'"
               );
               const formattedDateEnd = format(
                 new Date(value.endTime),
-                "MM/dd/yyyy"
+                "MM-dd-yyyy' 'hh:mmaaaaa'm'"
               );
               return (
                 <tr key={key}>
@@ -87,9 +87,6 @@ const AllEvents = () => {
                         }}
                       >
                         Delete
-                      </button>
-                      <button className="btn btn-success m-1 ">
-                        Event Atend
                       </button>
                     </span>
                   </td>

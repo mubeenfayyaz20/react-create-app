@@ -4,6 +4,7 @@ import AllEvents from "../EventManagement/AllEvents";
 import UpdateEvent from "../EventManagement/UpdateEvent";
 import { Routes, Route } from "react-router-dom";
 import CardEvents from "./CardEvents";
+import EventCalender from "../EventManagement/EventCalender";
 
 const MainContent = () => {
   return (
@@ -13,6 +14,7 @@ const MainContent = () => {
         <Route path="/all-events" element={<AllEvents />} />
         <Route path="/update-event/:id" element={<UpdateEvent />} />
         <Route path="/test" element={<CardEvents />} />
+        <Route path="/events-calender" element={<EventCalender />} />
       </Routes>
     </main>
   );

@@ -2,11 +2,13 @@ import React from "react";
 import Textfield from "../elements/Form/Textfield";
 import { useFormik } from "formik";
 import { basicSchema } from "../schemas";
-const EventForm = ({ apiCall, ...reset }) => {
+const EventForm = ({ apiCall, eventData }) => {
   const onSubmit = async (values, actions) => {
     try {
-      const postData = await apiCall(values);
+      const postData = await apiCall(values, actions);
       if (postData) {
+        actions.resetForm();
+
         alert("Successfully Done");
       } else {
         alert("Something went wrong");
@@ -24,15 +26,15 @@ const EventForm = ({ apiCall, ...reset }) => {
     errors,
     handleSubmit,
     touched,
-    resetForm,
     isSubmitting,
   } = useFormik({
     initialValues: {
-      title: "",
-      weddingDecription: "",
-      startTime: "",
-      endTime: "",
+      title: eventData?.title || "",
+      weddingDecription: eventData?.weddingDecription || "",
+      startTime: eventData?.startTime || "",
+      endTime: eventData?.endTime || "",
     },
+    enableReinitialize: true,
     validationSchema: basicSchema,
     onSubmit,
   });
@@ -81,7 +83,7 @@ const EventForm = ({ apiCall, ...reset }) => {
           <Textfield
             value={values.startTime}
             onChange={handleChange}
-            type="date"
+            type="datetime-local"
             label="Start Time"
             name="startTime"
             placeholder="Start time"
@@ -100,7 +102,7 @@ const EventForm = ({ apiCall, ...reset }) => {
           <Textfield
             value={values.endTime}
             onChange={handleChange}
-            type="date"
+            type="datetime-local"
             label="End Time"
             name="endTime"
             placeholder="End time"

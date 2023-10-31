@@ -3,9 +3,11 @@ import { eventPostData } from "../../api";
 import EventForm from "../../components/EventForm";
 
 const AddNewEvents = () => {
-  const apiCall = async (data) => {
+  const apiCall = async (data, { resetForm }) => {
     try {
       const postData = await eventPostData(data);
+      resetForm();
+
       return postData;
     } catch (err) {
       console.log(err);
