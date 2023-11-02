@@ -5,7 +5,7 @@ import format from "date-fns/format";
 import Modal from "../../components/Modal";
 import { timeSlots } from "./config";
 
-import { EventCalenderWrapper } from "./style.ts";
+import { EventCalenderWrapper } from "./style";
 
 const EventCalender = () => {
   const [data, setData] = useState([]);

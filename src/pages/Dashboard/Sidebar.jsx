@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import { SidebarWrapper, SidebarList } from "./style.ts";
+import { SidebarWrapper, SidebarList } from "./style";
 const Sidebar = () => {
   return (
     <SidebarWrapper>

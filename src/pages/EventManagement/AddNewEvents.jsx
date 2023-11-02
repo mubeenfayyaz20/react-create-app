@@ -2,7 +2,7 @@ import React from "react";
 import { eventPostData } from "../../api";
 import EventForm from "../../components/EventForm";
 
-import { AddNewEventForm } from "./style.ts";
+import { AddNewEventForm } from "./style";
 
 const AddNewEvents = () => {
   const apiCall = async (data, { resetForm }) => {

@@ -2,7 +2,7 @@ import React from "react";
 import logoImg from "../images/education-logo.png";
 import UserImg from "../images/user.png";
 
-import { HeaderWrapper, ProfileLink, NavListWrapper } from "./style.ts";
+import { HeaderWrapper, ProfileLink, NavListWrapper } from "./style";
 
 import { NavLink, Link } from "react-router-dom";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import DashboardCard from "./DashboardCard";
 
-import { CardEventsWrapper } from "./style.ts";
+import { CardEventsWrapper } from "./style";
 
 const CardEvents = () => {
   const pageOnLoad = () => {

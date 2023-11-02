@@ -5,7 +5,7 @@ import UpdateEvent from "../EventManagement/UpdateEvent";
 import { Routes, Route } from "react-router-dom";
 import CardEvents from "./CardEvents";
 import EventCalender from "../EventManagement/EventCalender";
-import { MainContentWrapper } from "./style.ts";
+import { MainContentWrapper } from "./style";
 
 const MainContent = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DashboardCardWrapper } from "./style.ts";
+import { DashboardCardWrapper } from "./style";
 const DashboardCard = ({ heading, button, onMouseHover }) => {
   return (
     <DashboardCardWrapper>

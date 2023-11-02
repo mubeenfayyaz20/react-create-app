@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ModalContainer, CalanderModal, CalanderModalFooter } from "./style.ts";
+import { ModalContainer, CalanderModal, CalanderModalFooter } from "./style";
 
 const Modal = ({ modalTitle, description, close }) => {
   return (
