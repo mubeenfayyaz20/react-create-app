@@ -1,9 +1,9 @@
 import React from "react";
 
+import { FooterWrapper } from "./style";
+
 const Footer = () => {
-  return (
-    <footer className="footer">© 2023 Arbisoft. All Rights Reserved.</footer>
-  );
+  return <FooterWrapper>© 2023 Arbisoft. All Rights Reserved.</FooterWrapper>;
 };
 
 export default Footer;

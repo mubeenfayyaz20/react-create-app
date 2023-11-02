@@ -15,89 +15,7 @@ a {
   cursor: pointer;
   display: inline-flex;
 }
-.mainDashboard {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-/* Header css */
-.headerWrapper {
-  background: aliceblue;
-  padding: 10px 60px !important;
-  justify-content: space-between;
-}
-.headerWrapper .logoImage img {
-  width: 250px;
-}
-.headerWrapper .navList,
-.headerWrapper {
-  list-style-type: none;
-  display: flex;
-  margin-bottom: 0;
-  align-items: center;
-  gap: 50px;
-  padding: 0;
-}
 
-.profileLink {
-  list-style-type: none;
-}
-.profileLink img {
-  border-radius: 100px;
-  width: 40px;
-}
-
-/* footer style */
-
-footer {
-  padding: 20px;
-  background: whitesmoke;
-  text-align: center;
-  margin-top: auto;
-}
-.mainLayout {
-  display: flex;
-}
-/* sidebar */
-.sidebar {
-  flex-shrink: 0;
-  width: 20%;
-  background: aliceblue;
-  height: 100vh;
-  border-top: 10px solid #2b95cf;
-  padding: 20px 30px;
-}
-
-.mainContent {
-  padding: 20px 30px;
-  width: 100%;
-}
-.sidebarList {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.sidebarList li a {
-  font-size: 18px;
-  text-decoration: none;
-  color: #000;
-}
-.sidebarList li .active {
-  background-color: #2b95cf;
-  padding: 10px 20px;
-  width: 100%;
-  color: #fff;
-  border-radius: 5px;
-}
-.addNewEventForm {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.addNewEventForm button {
-  width: 100%;
-}
 .table > thead tr th {
   padding: 15px;
   background-color: #2b95cf;
@@ -109,18 +27,6 @@ td {
   vertical-align: middle;
 }
 
-.cardEvents {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  justify-content: center;
-}
-
-.dashboardCard {
-  padding: 20px;
-  border: 1px solid red;
-  border-radius: 10px;
-}
 .invalid-feedback {
   display: block;
   width: 100%;
@@ -132,22 +38,11 @@ td {
 button:disabled {
   background-color: bisque;
 }
-.eventCalender table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 20px;
-  height: 100%;
-}
 
 table.floatThead-table {
   border-top: none;
   border-bottom: none;
   background-color: #fff;
-}
-
-.eventCalender table > tbody > tr > th {
-  font-weight: normal;
-  font-size: 10px;
 }
 
 .eventShowStyle {
@@ -157,29 +52,6 @@ table.floatThead-table {
 .eventCreated {
   background-color: aqua !important;
   cursor: pointer;
-}
-
-.modalContainer {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.calanderModal {
-  width: 30vw;
-  height: auto;
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
 }
 
 .close {
@@ -196,10 +68,4 @@ table.floatThead-table {
   border-radius: 100px;
   font-size: 22px;
   background-color: #fff;
-}
-
-.calanderModal-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
 }
