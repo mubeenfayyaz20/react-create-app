@@ -1,10 +1,12 @@
 import React from "react";
 
+import { ModalContainer, CalanderModal, CalanderModalFooter } from "./style.ts";
+
 const Modal = ({ modalTitle, description, close }) => {
   return (
     <>
-      <div className="modalContainer" onClick={close}>
-        <div className="calanderModal" onClick={(e) => e.stopPropagation()}>
+      <ModalContainer onClick={close}>
+        <CalanderModal onClick={(e) => e.stopPropagation()}>
           <div className="calanderModal-dialog" role="document">
             <div className="calanderModal-content">
               <div className="calanderModal-header">
@@ -22,19 +24,20 @@ const Modal = ({ modalTitle, description, close }) => {
               <div className="calanderModal-body">
                 <p>{description}</p>
               </div>
-              <div className="calanderModal-footer">
+              <CalanderModalFooter>
                 <button
                   type="button"
                   className="btn btn-secondary"
                   data-dismiss="calanderModal"
+                  onClick={close}
                 >
                   Close
                 </button>
-              </div>
+              </CalanderModalFooter>
             </div>
           </div>
-        </div>
-      </div>
+        </CalanderModal>
+      </ModalContainer>
     </>
   );
 };

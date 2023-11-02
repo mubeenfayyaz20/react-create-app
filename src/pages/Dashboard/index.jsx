@@ -3,19 +3,19 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Sidebar from "./Sidebar";
 import MainContent from "./MainContent";
-import {} from "react-router-dom";
+import { MainDashboard, MainLayout } from "./style.ts";
 
 const Dashboard = () => {
   return (
-    <div className="mainDashboard">
+    <MainDashboard>
       <Header />
-      <div className="mainLayout">
+      <MainLayout>
         <Sidebar />
         <MainContent />
-      </div>
+      </MainLayout>
 
       <Footer />
-    </div>
+    </MainDashboard>
   );
 };
 

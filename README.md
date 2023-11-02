@@ -85,4 +85,5 @@ json-server --watch db.json
 
 ### install yup
 
-npm i yup
+###
+npm install styled-components

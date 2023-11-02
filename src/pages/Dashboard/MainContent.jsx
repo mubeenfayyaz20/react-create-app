@@ -5,10 +5,11 @@ import UpdateEvent from "../EventManagement/UpdateEvent";
 import { Routes, Route } from "react-router-dom";
 import CardEvents from "./CardEvents";
 import EventCalender from "../EventManagement/EventCalender";
+import { MainContentWrapper } from "./style.ts";
 
 const MainContent = () => {
   return (
-    <main className="mainContent">
+    <MainContentWrapper>
       <Routes>
         <Route path="/add-new-events" element={<AddNewEvents />} />
         <Route path="/all-events" element={<AllEvents />} />
@@ -16,7 +17,7 @@ const MainContent = () => {
         <Route path="/test" element={<CardEvents />} />
         <Route path="/events-calender" element={<EventCalender />} />
       </Routes>
-    </main>
+    </MainContentWrapper>
   );
 };
 

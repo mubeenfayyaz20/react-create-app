@@ -1,10 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import { SidebarWrapper, SidebarList } from "./style.ts";
 const Sidebar = () => {
   return (
-    <aside className="sidebar">
-      <ul className="sidebarList">
+    <SidebarWrapper>
+      <SidebarList>
         <li className="nav-link">
           <NavLink to="add-new-events">Add New Events</NavLink>
         </li>
@@ -14,8 +15,8 @@ const Sidebar = () => {
         <li className="nav-link">
           <NavLink to="events-calender">Event Calender</NavLink>
         </li>
-      </ul>
-    </aside>
+      </SidebarList>
+    </SidebarWrapper>
   );
 };
 

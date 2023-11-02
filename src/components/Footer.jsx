@@ -1,8 +1,12 @@
 import React from "react";
 
+import { FooterWrapper } from "./style.ts";
+
 const Footer = () => {
   return (
-    <footer className="footer">© 2023 Arbisoft. All Rights Reserved.</footer>
+    <FooterWrapper className="footer">
+      © 2023 Arbisoft. All Rights Reserved.
+    </FooterWrapper>
   );
 };
 

@@ -2,19 +2,19 @@ import React from "react";
 import logoImg from "../images/education-logo.png";
 import UserImg from "../images/user.png";
 
+import { HeaderWrapper, ProfileLink, NavListWrapper } from "./style.ts";
+
 import { NavLink, Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="headerWrapper">
-      <ul className="navList">
-        <li className="nav-item">
-          <NavLink className="logoImage nav-link" to="https://arbisoft.com/">
-            <img src={logoImg} alt="logo" />
-          </NavLink>
-        </li>
-      </ul>
-      <li className="nav-item dropdown profileLink">
+    <HeaderWrapper>
+      <NavListWrapper className="navList">
+        <NavLink className="logoImage nav-link" to="https://arbisoft.com/">
+          <img src={logoImg} alt="logo" />
+        </NavLink>
+      </NavListWrapper>
+      <ProfileLink className="nav-item dropdown ">
         <NavLink
           className="nav-link dropdown-toggle"
           href="#"
@@ -41,8 +41,8 @@ const Header = () => {
             </Link>
           </li>
         </ul>
-      </li>
-    </header>
+      </ProfileLink>
+    </HeaderWrapper>
   );
 };
 

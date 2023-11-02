@@ -2,6 +2,8 @@ import React from "react";
 import { eventPostData } from "../../api";
 import EventForm from "../../components/EventForm";
 
+import { AddNewEventForm } from "./style.ts";
+
 const AddNewEvents = () => {
   const apiCall = async (data, { resetForm }) => {
     try {
@@ -15,10 +17,10 @@ const AddNewEvents = () => {
   };
 
   return (
-    <div className="addNewEventForm">
+    <AddNewEventForm>
       <h3 className="mb-3">Add Event</h3>
       <EventForm apiCall={apiCall} />
-    </div>
+    </AddNewEventForm>
   );
 };
 

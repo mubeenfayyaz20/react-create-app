@@ -1,8 +1,9 @@
 import React from "react";
 
+import { DashboardCardWrapper } from "./style.ts";
 const DashboardCard = ({ heading, button, onMouseHover }) => {
   return (
-    <div className="dashboardCard">
+    <DashboardCardWrapper>
       <h2>{heading}</h2>
       <button
         onClick={() => button(heading)}
@@ -10,7 +11,7 @@ const DashboardCard = ({ heading, button, onMouseHover }) => {
       >
         {heading}
       </button>
-    </div>
+    </DashboardCardWrapper>
   );
 };
 

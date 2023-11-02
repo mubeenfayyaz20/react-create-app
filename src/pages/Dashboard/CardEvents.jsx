@@ -1,6 +1,8 @@
 import React from "react";
 import DashboardCard from "./DashboardCard";
 
+import { CardEventsWrapper } from "./style.ts";
+
 const CardEvents = () => {
   const pageOnLoad = () => {
     return {
@@ -27,7 +29,7 @@ const CardEvents = () => {
   };
 
   return (
-    <div className="cardEvents">
+    <CardEventsWrapper>
       <div>
         <DashboardCard
           heading={sectionA}
@@ -42,7 +44,7 @@ const CardEvents = () => {
           onMouseHover={mouseHover}
         />
       </div>
-    </div>
+    </CardEventsWrapper>
   );
 };
 
