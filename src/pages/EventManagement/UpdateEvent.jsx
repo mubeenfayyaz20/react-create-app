@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getEventDataID, eventUpdateData } from "../../api";
 import EventForm from "../../components/EventForm";
 import { useParams } from "react-router-dom";
+import { AddNewEventForm } from "./style";
 
 const AddNewEvents = () => {
   const [eventData, setEventData] = useState(null);
@@ -29,10 +30,10 @@ const AddNewEvents = () => {
   };
 
   return (
-    <div className="addNewEventForm">
+    <AddNewEventForm>
       <h3 className="mb-3">Update Event</h3>
       {eventData && <EventForm apiCall={apiCall} eventData={eventData} />}
-    </div>
+    </AddNewEventForm>
   );
 };
 
